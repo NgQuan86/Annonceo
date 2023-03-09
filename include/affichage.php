@@ -20,7 +20,7 @@ $afficheFormPrix = $pdo->query(" SELECT DISTINCT prix FROM annonce ORDER BY prix
 
                             // L'AFFICHAGE DU TABLEAU D'ANNONCE
 // 01-tout l'affichage par categorie
-    if(isset($_GET['categorie'])){
+    if(isset($_GET['categorie_id'])){
         
         // affichage de tous les annonces concernés par une categorie
         $afficheAnnonce = $pdo->query(" SELECT * FROM annonce WHERE categorie_id = '$_GET[categorie_id]' ORDER BY prix ASC ");
