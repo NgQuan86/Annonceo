@@ -1,14 +1,10 @@
 <?php
 
-// requete pour afficher les onglets public (enfant, femme etc... par ordre alphabétique) dans la barre de navigation
-// DISTINCT permet de n'afficher qu'une seule fois l'onglet, sinon, il sera affiché pour autant de produits concernés par ce public
-$afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY public ASC ");
-
 ?>
 
 <!-- $erreur .= '<div class="alert alert-danger" role="alert">Erreur pseudo inconnu !</div>'; -->
 
-<!-- $validate .= '<div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+<!-- $validate .= '<div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
                   Félicitations <strong>' . $_SESSION['membre']['pseudo'] .'</strong>, vous etes connecté(e) 😉 !
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -23,7 +19,7 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="style.css">
                     <!-- favicon -->
     <link rel="icon" type="image/png" href="logo.png" />
 
@@ -33,10 +29,10 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
                     <!-- Mon CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
                   <!-- PAGE TITRE  -->
-    <title><?= (isset($pageTitle) ? $pageTitle : "Annonce") ?></title>
+    <title><?= (isset($pageTitle) ? $pageTitle : "annonceo") ?></title>
 
 
 </head>
@@ -49,7 +45,7 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                 <!-- LOGO -->
         <a class="navbar-brand" href="<?= URL ?>">
-            <img style="height: 60px;" src="<?= URL ?>img/logo">
+            <img style="height: 60px;" src="<?= URL ?>img/logo.webp">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +72,7 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
                                                 <!-- Search  -->
             <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
             </form>
 
 
@@ -92,7 +88,7 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                            <button type="button" class="btn btn-outline-success">
+                            <button type="button" class="btn btn-outline-warning">
                                 Espace <strong>
                                             <?= $_SESSION['membre']['pseudo'] ?>
                                     </strong>
@@ -121,14 +117,14 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
             
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <button type="button" class="btn btn-outline-success">Espace Membre</button>
+                        <button type="button" class="btn btn-outline-warning">Espace Membre</button>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="<?= URL ?>inscription.php"><button class="btn btn-outline-success">Inscription</button></a>
-                        <a class="dropdown-item"><button class="btn btn-outline-success" data-toggle="modal" data-target="#connexionModal">
+                        <a class="dropdown-item" href="<?= URL ?>inscription.php"><button class="btn btn-outline-warning">Inscription</button></a>
+                        <a class="dropdown-item"><button class="btn btn-outline-warning" data-toggle="modal" data-target="#connexionModal">
                             Connexion
                         </button></a>
-                        <a class="dropdown-item" href="<?= URL ?>panier.php"><button class="btn btn-outline-success px-4">Panier</button></a>
+                        <a class="dropdown-item" href="<?= URL ?>panier.php"><button class="btn btn-outline-warning px-4">Panier</button></a>
                         </div>
                     </li>
                 <?php endif; ?>
@@ -138,7 +134,7 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
                 <?php if(internauteConnecteAdmin()): ?>
                 <li class="nav-item mr-5">
                     <a class="nav-link" href="admin/index.php">
-                        <button type="button" class="btn btn-outline-success">Admin</button>
+                        <button type="button" class="btn btn-outline-warning">Admin</button>
                     </a>
                 </li>
                 <?php endif; ?>
@@ -157,14 +153,11 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
             <div class="modal-dialog" role="document">
 
 
-              <div class="modal-content">
+              <div class="modal-content bor-50">
 
                                     <!-- Header -->
                 <div class="modal-header">
-                  <h3 class="modal-title" id="exampleModalLabel"><img src="<?= URL ?>img/logo">Annonceo</h3>    
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                  <img  class="modal-title mx-auto" id="exampleModalLabel" src="<?= URL ?>img/logo.webp">  
                 </div>
 
                                     <!-- Body -->
@@ -174,19 +167,19 @@ $afficheMenuPublics = $pdo->query(" SELECT DISTINCT public FROM produit ORDER BY
                         <div class="row justify-content-around">
                             <div class="col-md-4 mt-4">
                                 <label class="form-label" for="pseudo"><div class="badge badge-dark text-wrap">Pseudo</div></label>
-                                <input class="form-control btn btn-outline-success" type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo">
+                                <input class="form-control btn btn-outline-warning" type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo">
                             </div>
                         </div>
 
                         <div class="row justify-content-around">
                             <div class="col-md-6 mt-4">
                                 <label class="form-label" for="mdp"><div class="badge badge-dark text-wrap">Mot de passe</div></label>
-                                <input class="form-control btn btn-outline-success" type="password" name="mdp" id="mdp" placeholder="Votre mot de passe">
+                                <input class="form-control btn btn-outline-warning" type="password" name="mdp" id="mdp" placeholder="Votre mot de passe">
                             </div>
                         </div>
                         
                         <div class="row justify-content-center">
-                            <button type="submit" name="connexion" class="btn btn-lg btn-outline-success mt-3">Connexion</button>
+                            <button type="submit" name="connexion" class="btn btn-lg btn-outline-warning mt-3">Connexion</button>
                         </div>
                     </form>
 
