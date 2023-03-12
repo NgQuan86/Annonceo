@@ -10,7 +10,6 @@ if(internauteConnecte()){
                             // la Procédure de l'inscription
 if($_POST){
 
-    
     if(!isset($_POST['pseudo']) || !preg_match('#^[a-zA-Z0-9-_.]{3,20}$#', $_POST['pseudo'])){
         $erreur .= '<div class="alert alert-danger" role="alert">Erreur format pseudo !</div>';
     }
@@ -31,14 +30,14 @@ if($_POST){
         $erreur .= '<div class="alert alert-danger" role="alert">Erreur format email !</div>';
     }
 
+    if(!isset($_POST['telephone']) || !preg_match('#^[0-9]{10}$#', $_POST['telephone'])){
+        $erreur .= '<div class="alert alert-danger" role="alert">Erreur format telephone !</div>';
+    }
+    
     if(!isset($_POST['civilite']) || $_POST['civilite'] != 'femme' && $_POST['civilite'] != 'homme'){
         $erreur .= '<div class="alert alert-danger" role="alert">Erreur format civilité !</div>';
     }
-
-
-    if(!isset($_POST['adresse']) || strlen($_POST['adresse']) < 5 || strlen($_POST['adresse']) > 50 ){
-        $erreur .= '<div class="alert alert-danger" role="alert">Erreur format adresse !</div>';
-    }
+    // -------------------------------------------------------------------------
 
                             // l'existe du pseudo en BDD.
     $verifPseudo = $pdo->prepare("SELECT pseudo FROM membre WHERE pseudo = :pseudo");
@@ -51,7 +50,6 @@ if($_POST){
 
     $_POST['mdp'] = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
-    // si aucun message d'erreur n'a été généré, c'est une que l'utilisateur ne s'est pas trompé en remplissant le formulaire, on peut enclencher la procédure envoie en BDD
     if(empty($erreur)){
         $inscrireUser = $pdo->prepare(" INSERT INTO membre(pseudo, mdp, nom, prenom, telephone, email, civilite, date_enregistrement, statut) VALUE (:pseudo, :mdp, :nom, :prenom,:telephone, :email, :civilite, NOW(), 2 )");
         $inscrireUser->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
@@ -70,6 +68,7 @@ if($_POST){
 require_once('include/header.php');
 ?>
 
+<!-- -------------------------------------------------------------------------------------- -->
 
 <h2 class="text-center py-5"><div class="badge badge-dark text-wrap p-3">Inscription</div></h2>
 <?= $erreur ?>
@@ -107,6 +106,15 @@ require_once('include/header.php');
         <input class="form-control btn btn-outline-primary" type="text" name="prenom" id="prenom" placeholder="Votre prénom">
         </div>
 
+        <div class="col-md-4 mt-5">
+            <label class="form-label" for="telephone"><div class="badge badge-dark text-wrap">Telephone</div></label>
+            <input class="form-control btn btn-outline-primary" type="text" name="telephone" id="telephone" placeholder="Votre telephone">
+        </div>
+    </div>
+
+    <div class="row">
+
+        
         <div class="col-md-4 mt-5 pt-2">
         <p><div class="badge badge-dark text-wrap">Civilité</div></p> 
             <div class="form-check form-check-inline">
@@ -118,24 +126,13 @@ require_once('include/header.php');
                 <label class="form-check-label mx-2" for="civilite2">Homme</label>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-
-        <div class="col-md-4 mt-5">
-            <label class="form-label" for="telephone"><div class="badge badge-dark text-wrap">Telephone</div></label>
-            <input class="form-control btn btn-outline-primary" type="text" name="telephone" id="telephone" placeholder="Votre telephone">
-        </div>
-
-        <div class="col-md-4 mt-5">
-            <label class="form-label" for="adresse"><div class="badge badge-dark text-wrap">Adresse</div></label>
-            <input class="form-control btn btn-outline-primary" type="text" name="adresse" id="adresse" placeholder="Votre adresse">
+        <div class="col-md-1 mt-5">
+        <button type="submit" class="btn btn-lg btn-outline-primary">Valider</button>
         </div>
     </div>
 
-    <div class="col-md-1 mt-5">
-    <button type="submit" class="btn btn-lg btn-outline-primary">Valider</button>
-    </div>
+    
     
 </form>
 
