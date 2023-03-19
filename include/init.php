@@ -16,7 +16,16 @@ $erreur_index = "";
 $validate = "";
 $validate_index = "";
 $content = "";
-
+$titre ="";
+$prix ="";
+$pays =""; 
+$description_courte ="";
+$description_longue ="";
+$adresse ="";
+$ville ="";
+$cp ="";
+$photo ="";
+$id_annonce = "";
 
 
 foreach($_POST as $key => $value){

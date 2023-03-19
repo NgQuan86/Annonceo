@@ -32,23 +32,23 @@
       <div class="list-group list-group-flush">
 
         <a href="<?= URL ?>admin/gestion_membre.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
-            <button type="button" class="btn btn-outline-warning text-light">&nbspGestion &nbspdes&nbsp membres&nbsp</button>
+            <button type="button" class="btn btn-outline-warning text-light">Gestion des membre</button>
         </a>
 
-        <a href="<?= URL ?>admin/gestion_produit.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
-            <button type="button" class="btn btn-outline-warning text-light">&nbspGestion &nbsp&nbspdes&nbsp&nbsp produits&nbsp</button>
+        <a href="<?= URL ?>admin/gestion_annonce.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
+            <button type="button" class="btn btn-outline-warning text-light">Gestion des annonces</button>
         </a>
 
-        <a href="<?= URL ?>admin/gestion_commande.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
-            <button type="button" class="btn btn-outline-warning text-light">Gestion des commandes</button>
+        <a href="<?= URL ?>admin/gestion_commentaire.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
+            <button type="button" class="btn btn-outline-warning text-light">Gestion des commentaire</button>
         </a>
 
-        <a href="<?= URL ?>admin/gestion_detail_commande.php" class="list-group-item list-group-item-action bg-dark text-light py-4">
-            <button type="button" class="btn btn-outline-warning text-light">&nbspDétail des commandes&nbsp</button>
+        <a href="<?= URL ?>admin/gestion_categorie.php" class="list-group-item list-group-item-action bg-dark text-light py-4">
+            <button type="button" class="btn btn-outline-warning text-light">Gestion des categorie</button>
         </a>
 
-        <a href="<?= URL ?>index.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
-            <button type="button" class="btn btn-outline-warning text-light">Retour Accueil Boutique</button>
+        <a href="<?= URL ?>admin/gestion_note.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
+            <button type="button" class="btn btn-outline-warning text-light">Gestion des notes</button>
         </a>
     
       </div>
