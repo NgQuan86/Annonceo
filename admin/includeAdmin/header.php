@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -43,8 +43,8 @@
             <button type="button" class="btn btn-outline-warning text-light">Gestion des commentaire</button>
         </a>
 
-        <a href="<?= URL ?>admin/gestion_categorie.php" class="list-group-item list-group-item-action bg-dark text-light py-4">
-            <button type="button" class="btn btn-outline-warning text-light">Gestion des categorie</button>
+        <a href="<?= URL ?>admin/statitique.php" class="list-group-item list-group-item-action bg-dark text-light py-4">
+            <button type="button" class="btn btn-outline-warning text-light">Statitique</button>
         </a>
 
         <a href="<?= URL ?>admin/gestion_note.php" class="list-group-item list-group-item-action bg-dark text-light py-5">
@@ -58,24 +58,25 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
 
   
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
-      <li class="nav-item">
-        <a class="nav-link" href="<?= URL ?>index.php"><button type="button" class="btn btn-outline-warning text-light">Home Annonceo</button></a>
-      </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= URL ?>index.php"><button type="button" class="btn btn-outline-warning text-light">Home Annonceo</button></a>
+          </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="<?= URL ?>admin/index.php"><button type="button" class="btn btn-outline-warning text-light">Home Admin</button></a>
-      </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= URL ?>admin/index.php"><button type="button" class="btn btn-outline-warning text-light">Home Admin</button></a>
+          </li>
 
 
-    </ul>
-  </div>
-</nav>
+        </ul>
+      </div>
+    </nav>
+  
 
 <div class="container mb-5 mx-auto text-center">

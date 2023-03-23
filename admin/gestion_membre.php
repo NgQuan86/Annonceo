@@ -295,7 +295,7 @@ require_once('includeAdmin/header.php');
                 </td>
 
                 <td>
-                    <a href='?action=update&id_membre=<?= $user['id_membre'] ?>'><i class="bi bi-zoom-in"></i></a>
+                    <a href='<?= URL . '/profil.php'?>'><i class="bi bi-zoom-in"></i></a>
                 </td>
 
                 <td>

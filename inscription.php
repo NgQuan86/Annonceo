@@ -62,6 +62,7 @@ if($_POST){
         $inscrireUser->execute();
 
         header('location' . URL  . 'connexion.php?action=validate');
+      
     } 
 }
 

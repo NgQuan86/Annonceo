@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
                     <!-- Mon CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  
 
                   <!-- PAGE TITRE  -->
     <title><?= (isset($pageTitle) ? $pageTitle : "annonceo") ?></title>
@@ -61,10 +61,13 @@
                 <a class="nav-link" href="<?= URL ?>">Annonceo</a>
             </li>
             <li class="nav-item mt-2">
-                <a class="nav-link" href="<?= URL ?>">Qui Sommes Nous</a>
+                <a class="nav-link" href="<?= URL . 'nous.php' ?>">Qui Sommes Nous</a>
             </li>
             <li class="nav-item mt-2">
                 <a class="nav-link" href="<?= URL ?>">Contact</a>
+            </li>
+            <li class="nav-item mt-2">
+                <a class="nav-link" href="<?= URL . '/depose_annonce' ?>">Depose annonce</a>
             </li>
                             
             </ul>
